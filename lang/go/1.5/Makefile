@@ -3,6 +3,11 @@
 VERSION =		1.5.1
 
 BUILD_DEPENDS =		go->=1.4.3:lang/go/1.4
+INSTALLED !=		(pkg_info -qe "go->=1.5" && echo yes) || echo no
+.if ${INSTALLED:L} == "yes"
+MAKE_ENV =		GOROOT_BOOTSTRAP=${GOROOT}
+.else
 MAKE_ENV =		GOROOT_BOOTSTRAP=${GOROOT:H}/go14
+.endif
 
 .include <bsd.port.mk>
