@@ -16,8 +16,6 @@ MAINTAINER = 		Joel Sing <jsing@openbsd.org>
 # software: BSD, documentation: CC-BY-3.0
 PERMIT_PACKAGE_CDROM =	Yes
 
-WANTLIB +=		c pthread
-
 MASTER_SITES =		http://golang.org/dl/
 
 BUILD_DEPENDS +=	shells/bash
