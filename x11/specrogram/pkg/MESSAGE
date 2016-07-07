@@ -1,0 +1,3 @@
+Restart sndiod in monitoring mode:
+	echo "sndiod_flags= -mplay,mon,midi" >> /etc/rc.conf.local
+	/etc/rc.d/sndiod restart
