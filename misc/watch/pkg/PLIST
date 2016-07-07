@@ -1,0 +1,3 @@
+@comment $OpenBSD$
+@bin bin/watch
+@man man/man1/watch.1
