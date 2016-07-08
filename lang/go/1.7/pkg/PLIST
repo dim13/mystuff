@@ -191,6 +191,7 @@ go/misc/cgo/errors/issue13423.go
 go/misc/cgo/errors/issue13635.go
 go/misc/cgo/errors/issue13830.go
 go/misc/cgo/errors/issue14669.go
+go/misc/cgo/errors/issue16116.go
 go/misc/cgo/errors/issue7757.go
 go/misc/cgo/errors/issue8442.go
 go/misc/cgo/errors/ptr.go
@@ -1029,6 +1030,7 @@ go/pkg${GOCFG}/cmd/vendor/golang.org/x/arch/x86/
 go/pkg${GOCFG}/cmd/vendor/golang.org/x/arch/x86/x86asm.a
 go/pkg${GOCFG}/cmd/vet/
 go/pkg${GOCFG}/cmd/vet/internal/
+go/pkg${GOCFG}/cmd/vet/internal/cfg.a
 go/pkg${GOCFG}/cmd/vet/internal/whitelist.a
 go/pkg${GOCFG}/compress/
 go/pkg${GOCFG}/compress/bzip2.a
@@ -2307,8 +2309,13 @@ go/src/cmd/vet/copylock.go
 go/src/cmd/vet/deadcode.go
 go/src/cmd/vet/doc.go
 go/src/cmd/vet/internal/
+go/src/cmd/vet/internal/cfg/
+go/src/cmd/vet/internal/cfg/builder.go
+go/src/cmd/vet/internal/cfg/cfg.go
+go/src/cmd/vet/internal/cfg/cfg_test.go
 go/src/cmd/vet/internal/whitelist/
 go/src/cmd/vet/internal/whitelist/whitelist.go
+go/src/cmd/vet/lostcancel.go
 go/src/cmd/vet/main.go
 go/src/cmd/vet/method.go
 go/src/cmd/vet/nilfunc.go
@@ -2341,6 +2348,7 @@ go/src/cmd/vet/testdata/divergent/buf.go
 go/src/cmd/vet/testdata/divergent/buf_test.go
 go/src/cmd/vet/testdata/incomplete/
 go/src/cmd/vet/testdata/incomplete/examples_test.go
+go/src/cmd/vet/testdata/lostcancel.go
 go/src/cmd/vet/testdata/method.go
 go/src/cmd/vet/testdata/nilfunc.go
 go/src/cmd/vet/testdata/print.go
@@ -2852,6 +2860,7 @@ go/src/debug/pe/string.go
 go/src/debug/pe/symbol.go
 go/src/debug/pe/testdata/
 go/src/debug/pe/testdata/gcc-386-mingw-exec
+go/src/debug/pe/testdata/gcc-386-mingw-no-symbols-exec
 go/src/debug/pe/testdata/gcc-386-mingw-obj
 go/src/debug/pe/testdata/gcc-amd64-mingw-exec
 go/src/debug/pe/testdata/gcc-amd64-mingw-obj
@@ -4503,6 +4512,8 @@ go/src/runtime/internal/sys/arch_ppc64le.go
 go/src/runtime/internal/sys/arch_s390x.go
 go/src/runtime/internal/sys/gengoos.go
 go/src/runtime/internal/sys/intrinsics.go
+go/src/runtime/internal/sys/intrinsics_386.s
+go/src/runtime/internal/sys/intrinsics_stubs.go
 go/src/runtime/internal/sys/intrinsics_test.go
 go/src/runtime/internal/sys/stubs.go
 go/src/runtime/internal/sys/sys.go
@@ -4650,9 +4661,11 @@ go/src/runtime/race/race.go
 go/src/runtime/race/race_darwin_amd64.syso
 go/src/runtime/race/race_freebsd_amd64.syso
 go/src/runtime/race/race_linux_amd64.syso
+go/src/runtime/race/race_linux_test.go
 go/src/runtime/race/race_test.go
 go/src/runtime/race/race_unix_test.go
 go/src/runtime/race/race_windows_amd64.syso
+go/src/runtime/race/race_windows_test.go
 go/src/runtime/race/sched_test.go
 go/src/runtime/race/testdata/
 go/src/runtime/race/testdata/atomic_test.go
@@ -4838,6 +4851,7 @@ go/src/runtime/testdata/testprog/crash.go
 go/src/runtime/testdata/testprog/deadlock.go
 go/src/runtime/testdata/testprog/gc.go
 go/src/runtime/testdata/testprog/main.go
+go/src/runtime/testdata/testprog/memprof.go
 go/src/runtime/testdata/testprog/misc.go
 go/src/runtime/testdata/testprog/signal.go
 go/src/runtime/testdata/testprog/stringconcat.go
