@@ -5102,6 +5102,7 @@ go/src/syscall/syscall_darwin_386.go
 go/src/syscall/syscall_darwin_amd64.go
 go/src/syscall/syscall_darwin_arm.go
 go/src/syscall/syscall_darwin_arm64.go
+go/src/syscall/syscall_darwin_test.go
 go/src/syscall/syscall_dragonfly.go
 go/src/syscall/syscall_dragonfly_amd64.go
 go/src/syscall/syscall_freebsd.go
