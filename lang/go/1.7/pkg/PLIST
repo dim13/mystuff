@@ -3797,6 +3797,7 @@ go/src/net/conf_test.go
 go/src/net/conn_test.go
 go/src/net/dial.go
 go/src/net/dial_test.go
+go/src/net/dial_unix_test.go
 go/src/net/dnsclient.go
 go/src/net/dnsclient_test.go
 go/src/net/dnsclient_unix.go
