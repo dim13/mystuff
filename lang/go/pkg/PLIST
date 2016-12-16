@@ -288,6 +288,7 @@ go/misc/cgo/test/issue1635.go
 go/misc/cgo/test/issue17065.go
 go/misc/cgo/test/issue17537.go
 go/misc/cgo/test/issue18126.go
+go/misc/cgo/test/issue18146.go
 go/misc/cgo/test/issue2462.go
 go/misc/cgo/test/issue3250.go
 go/misc/cgo/test/issue3250w.go
@@ -364,6 +365,7 @@ go/misc/cgo/test/issue9400/asm_amd64x.s
 go/misc/cgo/test/issue9400/asm_arm.s
 go/misc/cgo/test/issue9400/asm_arm64.s
 go/misc/cgo/test/issue9400/asm_mips64x.s
+go/misc/cgo/test/issue9400/asm_mipsx.s
 go/misc/cgo/test/issue9400/asm_ppc64x.s
 go/misc/cgo/test/issue9400/asm_s390x.s
 go/misc/cgo/test/issue9400/gccgo.go
@@ -465,6 +467,7 @@ go/misc/cgo/testsanitizers/tsan5.go
 go/misc/cgo/testsanitizers/tsan6.go
 go/misc/cgo/testsanitizers/tsan7.go
 go/misc/cgo/testsanitizers/tsan8.go
+go/misc/cgo/testsanitizers/tsan9.go
 go/misc/cgo/testshared/
 go/misc/cgo/testshared/shared_test.go
 go/misc/cgo/testshared/src/
@@ -683,7 +686,6 @@ go/pkg${GOCFG}/database/
 go/pkg${GOCFG}/database/sql/
 go/pkg${GOCFG}/database/sql.a
 go/pkg${GOCFG}/database/sql/driver.a
-go/pkg${GOCFG}/database/sql/internal.a
 go/pkg${GOCFG}/debug/
 go/pkg${GOCFG}/debug/dwarf.a
 go/pkg${GOCFG}/debug/elf.a
@@ -1305,6 +1307,7 @@ go/src/cmd/compile/internal/ssa/type.go
 go/src/cmd/compile/internal/ssa/type_test.go
 go/src/cmd/compile/internal/ssa/value.go
 go/src/cmd/compile/internal/ssa/writebarrier.go
+go/src/cmd/compile/internal/ssa/writebarrier_test.go
 go/src/cmd/compile/internal/ssa/zcse.go
 go/src/cmd/compile/internal/syntax/
 go/src/cmd/compile/internal/syntax/dumper.go
@@ -1355,6 +1358,7 @@ go/src/cmd/dist/mkdeps.bash
 go/src/cmd/dist/sys_default.go
 go/src/cmd/dist/sys_windows.go
 go/src/cmd/dist/test.go
+go/src/cmd/dist/test_linux.go
 go/src/cmd/dist/util.go
 go/src/cmd/dist/util_gc.go
 go/src/cmd/dist/util_gccgo.go
@@ -1658,6 +1662,8 @@ go/src/cmd/go/testdata/testinternal4/src/q/j/
 go/src/cmd/go/testdata/testinternal4/src/q/j/j.go
 go/src/cmd/go/testdata/testonly/
 go/src/cmd/go/testdata/testonly/p_test.go
+go/src/cmd/go/testdata/testterminal18153/
+go/src/cmd/go/testdata/testterminal18153/terminal_test.go
 go/src/cmd/go/testdata/testvendor/
 go/src/cmd/go/testdata/testvendor/src/
 go/src/cmd/go/testdata/testvendor/src/p/
@@ -1778,6 +1784,7 @@ go/src/cmd/internal/obj/flag.go
 go/src/cmd/internal/obj/funcdata.go
 go/src/cmd/internal/obj/go.go
 go/src/cmd/internal/obj/ld.go
+go/src/cmd/internal/obj/line.go
 go/src/cmd/internal/obj/line_test.go
 go/src/cmd/internal/obj/link.go
 go/src/cmd/internal/obj/mips/
@@ -1787,7 +1794,6 @@ go/src/cmd/internal/obj/mips/anames0.go
 go/src/cmd/internal/obj/mips/asm0.go
 go/src/cmd/internal/obj/mips/list0.go
 go/src/cmd/internal/obj/mips/obj0.go
-go/src/cmd/internal/obj/obj.go
 go/src/cmd/internal/obj/objfile.go
 go/src/cmd/internal/obj/pass.go
 go/src/cmd/internal/obj/pcln.go
@@ -2555,8 +2561,6 @@ go/src/database/sql/driver/types.go
 go/src/database/sql/driver/types_test.go
 go/src/database/sql/example_test.go
 go/src/database/sql/fakedb_test.go
-go/src/database/sql/internal/
-go/src/database/sql/internal/types.go
 go/src/database/sql/sql.go
 go/src/database/sql/sql_test.go
 go/src/debug/
@@ -2913,6 +2917,8 @@ go/src/go/internal/gccgoimporter/testdata/imports.go
 go/src/go/internal/gccgoimporter/testdata/imports.gox
 go/src/go/internal/gccgoimporter/testdata/pointer.go
 go/src/go/internal/gccgoimporter/testdata/pointer.gox
+go/src/go/internal/gccgoimporter/testdata/time.gox
+go/src/go/internal/gccgoimporter/testdata/unicode.gox
 go/src/go/internal/gcimporter/
 go/src/go/internal/gcimporter/bimport.go
 go/src/go/internal/gcimporter/exportdata.go
@@ -4225,6 +4231,7 @@ go/src/runtime/cgo/asm_amd64.s
 go/src/runtime/cgo/asm_arm.s
 go/src/runtime/cgo/asm_arm64.s
 go/src/runtime/cgo/asm_mips64x.s
+go/src/runtime/cgo/asm_mipsx.s
 go/src/runtime/cgo/asm_nacl_amd64p32.s
 go/src/runtime/cgo/asm_ppc64x.s
 go/src/runtime/cgo/asm_s390x.s
@@ -4260,9 +4267,11 @@ go/src/runtime/cgo/gcc_linux_amd64.c
 go/src/runtime/cgo/gcc_linux_arm.c
 go/src/runtime/cgo/gcc_linux_arm64.c
 go/src/runtime/cgo/gcc_linux_mips64x.c
+go/src/runtime/cgo/gcc_linux_mipsx.c
 go/src/runtime/cgo/gcc_linux_ppc64x.c
 go/src/runtime/cgo/gcc_linux_s390x.c
 go/src/runtime/cgo/gcc_mips64x.S
+go/src/runtime/cgo/gcc_mipsx.S
 go/src/runtime/cgo/gcc_mmap.c
 go/src/runtime/cgo/gcc_netbsd_386.c
 go/src/runtime/cgo/gcc_netbsd_amd64.c
@@ -4282,6 +4291,7 @@ go/src/runtime/cgo/gcc_windows_386.c
 go/src/runtime/cgo/gcc_windows_amd64.c
 go/src/runtime/cgo/iscgo.go
 go/src/runtime/cgo/libcgo.h
+go/src/runtime/cgo/libcgo_unix.h
 go/src/runtime/cgo/mmap.go
 go/src/runtime/cgo/netbsd.go
 go/src/runtime/cgo/openbsd.go
@@ -6241,6 +6251,8 @@ go/test/fixedbugs/bug496.go
 go/test/fixedbugs/bug497.go
 go/test/fixedbugs/bug498.go
 go/test/fixedbugs/bug499.go
+go/test/fixedbugs/bug500.go
+go/test/fixedbugs/bug501.go
 go/test/fixedbugs/gcc61204.go
 go/test/fixedbugs/gcc61244.go
 go/test/fixedbugs/gcc61246.go
@@ -6334,6 +6346,7 @@ go/test/fixedbugs/issue13171.go
 go/test/fixedbugs/issue13248.go
 go/test/fixedbugs/issue13261.go
 go/test/fixedbugs/issue13262.go
+go/test/fixedbugs/issue13263.go
 go/test/fixedbugs/issue13266.go
 go/test/fixedbugs/issue13268.go
 go/test/fixedbugs/issue13273.go
@@ -6505,6 +6518,7 @@ go/test/fixedbugs/issue17710.go
 go/test/fixedbugs/issue17752.go
 go/test/fixedbugs/issue17918.go
 go/test/fixedbugs/issue18092.go
+go/test/fixedbugs/issue18149.go
 go/test/fixedbugs/issue2615.go
 go/test/fixedbugs/issue3552.dir/
 go/test/fixedbugs/issue3552.dir/one.go
