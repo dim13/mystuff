@@ -471,6 +471,7 @@ go/misc/cgo/testsanitizers/msan3.go
 go/misc/cgo/testsanitizers/msan4.go
 go/misc/cgo/testsanitizers/msan5.go
 go/misc/cgo/testsanitizers/msan_fail.go
+go/misc/cgo/testsanitizers/msan_shared.go
 go/misc/cgo/testsanitizers/test.bash
 go/misc/cgo/testsanitizers/tsan.go
 go/misc/cgo/testsanitizers/tsan2.go
@@ -6564,6 +6565,7 @@ go/test/fixedbugs/issue18392.go
 go/test/fixedbugs/issue18410.go
 go/test/fixedbugs/issue18459.go
 go/test/fixedbugs/issue18661.go
+go/test/fixedbugs/issue18725.go
 go/test/fixedbugs/issue2615.go
 go/test/fixedbugs/issue3552.dir/
 go/test/fixedbugs/issue3552.dir/one.go
