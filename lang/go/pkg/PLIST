@@ -5954,8 +5954,10 @@ go/test/fixedbugs/issue16133.dir/c.go
 go/test/fixedbugs/issue16133.go
 go/test/fixedbugs/issue16193.go
 go/test/fixedbugs/issue16249.go
+go/test/fixedbugs/issue16331.go
 go/test/fixedbugs/issue16515.go
 go/test/fixedbugs/issue17318.go
+go/test/fixedbugs/issue18410.go
 go/test/fixedbugs/issue2615.go
 go/test/fixedbugs/issue3552.dir/
 go/test/fixedbugs/issue3552.dir/one.go

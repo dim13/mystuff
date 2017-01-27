@@ -4,7 +4,7 @@ ONLY_FOR_ARCHS =	${GO_ARCHS}
 
 COMMENT =		Go programming language
 
-VERSION =		1.7.4
+VERSION =		1.7.5
 EXTRACT_SUFX =		.src.tar.gz
 DISTNAME = 		go${VERSION}
 PKGNAME = 		go-${VERSION}
@@ -17,7 +17,7 @@ MAINTAINER = 		Joel Sing <jsing@openbsd.org>
 # software: BSD, documentation: CC-BY-3.0
 PERMIT_PACKAGE_CDROM =	Yes
 
-WANTLIB =		c m pthread
+WANTLIB =		c pthread
 
 MASTER_SITES =		https://golang.org/dl/
 
