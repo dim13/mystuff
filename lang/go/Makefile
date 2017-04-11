@@ -12,7 +12,7 @@ CATEGORIES =		lang
 
 HOMEPAGE =		https://golang.org/
 
-MAINTAINER = 		Joel Sing <jsing@openbsd.org>
+MAINTAINER = 		Dimitri Sokolyuk <demon@dim13.org>
 
 # software: BSD, documentation: CC-BY-3.0
 PERMIT_PACKAGE_CDROM =	Yes
