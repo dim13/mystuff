@@ -4,7 +4,7 @@ ONLY_FOR_ARCHS =	${GO_ARCHS}
 
 COMMENT =		Go programming language
 
-VERSION =		1.8.3
+VERSION =		1.9beta1
 EXTRACT_SUFX =		.src.tar.gz
 DISTNAME = 		go${VERSION}
 PKGNAME = 		go-${VERSION}
@@ -21,7 +21,10 @@ WANTLIB =		c pthread
 
 MASTER_SITES =		https://golang.org/dl/
 
-BUILD_DEPENDS =		go->=1.4.3:lang/go shells/bash
+BUILD_DEPENDS =		go->=1.4.3:lang/go \
+			shells/bash \
+			archivers/gtar
+TAR =			gtar
 
 SEPARATE_BUILD =	simple
 CONFIGURE_STYLE =	None
