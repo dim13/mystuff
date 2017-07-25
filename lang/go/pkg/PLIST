@@ -77,6 +77,11 @@ go/doc/devel/pre_go1.html
 go/doc/devel/release.html
 go/doc/devel/weekly.html
 go/doc/docs.html
+go/doc/editors/
+go/doc/editors.html
+go/doc/editors/gogland.png
+go/doc/editors/vimgo.png
+go/doc/editors/vscodego.png
 go/doc/effective_go.html
 go/doc/gccgo_contribute.html
 go/doc/gccgo_install.html
@@ -293,6 +298,7 @@ go/misc/cgo/test/issue17537.go
 go/misc/cgo/test/issue18126.go
 go/misc/cgo/test/issue18146.go
 go/misc/cgo/test/issue18720.go
+go/misc/cgo/test/issue20129.go
 go/misc/cgo/test/issue20266/
 go/misc/cgo/test/issue20266.go
 go/misc/cgo/test/issue20266/issue20266.h
@@ -490,6 +496,7 @@ go/misc/cgo/testsanitizers/test.bash
 go/misc/cgo/testsanitizers/tsan.go
 go/misc/cgo/testsanitizers/tsan10.go
 go/misc/cgo/testsanitizers/tsan11.go
+go/misc/cgo/testsanitizers/tsan12.go
 go/misc/cgo/testsanitizers/tsan2.go
 go/misc/cgo/testsanitizers/tsan3.go
 go/misc/cgo/testsanitizers/tsan4.go
@@ -1122,6 +1129,7 @@ go/src/cmd/asm/internal/asm/testdata/amd64enc.s
 go/src/cmd/asm/internal/asm/testdata/amd64error.s
 go/src/cmd/asm/internal/asm/testdata/arm.s
 go/src/cmd/asm/internal/asm/testdata/arm64.s
+go/src/cmd/asm/internal/asm/testdata/arm64enc.s
 go/src/cmd/asm/internal/asm/testdata/armerror.s
 go/src/cmd/asm/internal/asm/testdata/armv6.s
 go/src/cmd/asm/internal/asm/testdata/mips.s
@@ -1606,7 +1614,6 @@ go/src/cmd/go/testdata/importcom/src/wrongplace/
 go/src/cmd/go/testdata/importcom/src/wrongplace/x.go
 go/src/cmd/go/testdata/importcom/works.go
 go/src/cmd/go/testdata/importcom/wrongplace.go
-go/src/cmd/go/testdata/inprogress_interrupt_test.go
 go/src/cmd/go/testdata/local/
 go/src/cmd/go/testdata/local/easy.go
 go/src/cmd/go/testdata/local/easysub/
@@ -3811,6 +3818,8 @@ go/src/io/ioutil/ioutil.go
 go/src/io/ioutil/ioutil_test.go
 go/src/io/ioutil/tempfile.go
 go/src/io/ioutil/tempfile_test.go
+go/src/io/ioutil/testdata/
+go/src/io/ioutil/testdata/hello
 go/src/io/multi.go
 go/src/io/multi_test.go
 go/src/io/pipe.go
@@ -3918,6 +3927,7 @@ go/src/math/bits.go
 go/src/math/bits/bits.go
 go/src/math/bits/bits_tables.go
 go/src/math/bits/bits_test.go
+go/src/math/bits/example_test.go
 go/src/math/bits/make_tables.go
 go/src/math/cbrt.go
 go/src/math/cbrt_s390x.s
@@ -3953,6 +3963,7 @@ go/src/math/erf.go
 go/src/math/erf_s390x.s
 go/src/math/erf_stub.s
 go/src/math/erfc_s390x.s
+go/src/math/example_test.go
 go/src/math/exp.go
 go/src/math/exp2_386.s
 go/src/math/exp2_amd64.s
@@ -4846,6 +4857,7 @@ go/src/runtime/export_futex_test.go
 go/src/runtime/export_linux_test.go
 go/src/runtime/export_mmap_test.go
 go/src/runtime/export_test.go
+go/src/runtime/export_unix_test.go
 go/src/runtime/export_windows_test.go
 go/src/runtime/extern.go
 go/src/runtime/fastlog2.go
@@ -7182,6 +7194,14 @@ go/test/fixedbugs/issue20682.dir/r.go
 go/test/fixedbugs/issue20682.go
 go/test/fixedbugs/issue20749.go
 go/test/fixedbugs/issue20789.go
+go/test/fixedbugs/issue20811.go
+go/test/fixedbugs/issue20813.go
+go/test/fixedbugs/issue21048.go
+go/test/fixedbugs/issue21120.dir/
+go/test/fixedbugs/issue21120.dir/a.go
+go/test/fixedbugs/issue21120.dir/b.go
+go/test/fixedbugs/issue21120.dir/main.go
+go/test/fixedbugs/issue21120.go
 go/test/fixedbugs/issue2615.go
 go/test/fixedbugs/issue3552.dir/
 go/test/fixedbugs/issue3552.dir/one.go
