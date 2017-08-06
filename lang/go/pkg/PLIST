@@ -2418,7 +2418,7 @@ go/src/cmd/vet/all/whitelist/netbsd_386.txt
 go/src/cmd/vet/all/whitelist/netbsd_amd64.txt
 go/src/cmd/vet/all/whitelist/netbsd_arm.txt
 go/src/cmd/vet/all/whitelist/openbsd_386.txt
-go/src/cmd/vet/all/whitelist${GOCFG}.txt
+go/src/cmd/vet/all/whitelist/openbsd_amd64.txt
 go/src/cmd/vet/all/whitelist/openbsd_arm.txt
 go/src/cmd/vet/all/whitelist/plan9_386.txt
 go/src/cmd/vet/all/whitelist/plan9_amd64.txt
