@@ -1,11 +1,11 @@
-# $OpenBSD: go.port.mk,v 1.11 2016/05/21 01:39:36 czarkoff Exp $
+# $OpenBSD: go.port.mk,v 1.16 2017/04/22 09:55:16 ajacoutot Exp $
 
 ONLY_FOR_ARCHS ?=	${GO_ARCHS}
 
 MODGO_BUILDDEP ?=	Yes
 
 MODGO_RUN_DEPENDS =	lang/go
-MODGO_BUILD_DEPENDS =	lang/go>=1.6
+MODGO_BUILD_DEPENDS =	lang/go
 
 .if ${NO_BUILD:L} == "no" && ${MODGO_BUILDDEP:L} == "yes"
 BUILD_DEPENDS +=	${MODGO_BUILD_DEPENDS}
@@ -22,10 +22,15 @@ MODGO_SUBDIR ?=		${WRKDIST}
 MODGO_TYPE ?=		bin
 MODGO_WORKSPACE ?=	${WRKDIR}/go
 MODGO_GOPATH ?=		${MODGO_WORKSPACE}:${MODGO_PACKAGE_PATH}
-MODGO_ENV +=		GOPATH="${MODGO_GOPATH}"
+MODGO_ENV +=		GOPATH="${MODGO_GOPATH}" PATH="${PORTPATH}"
 MODGO_CMD ?=		${SETENV} ${MODGO_ENV} go
 MODGO_BUILD_CMD =	${MODGO_CMD} install ${MODGO_FLAGS}
 MODGO_TEST_CMD =	${MODGO_CMD} test ${MODGO_FLAGS}
+
+.if ! empty(MODGO_LDFLAGS)
+MODGO_BUILD_CMD +=	-ldflags="${MODGO_LDFLAGS}"
+MODGO_TEST_CMD +=	-ldflags="${MODGO_LDFLAGS}"
+.endif
 
 .if defined(GH_ACCOUNT) && defined(GH_PROJECT)
 ALL_TARGET ?=		github.com/${GH_ACCOUNT}/${GH_PROJECT}
@@ -40,7 +45,12 @@ MODGO_SETUP_WORKSPACE =	mkdir -p ${WRKSRC:H}; mv ${MODGO_SUBDIR} ${WRKSRC};
 CATEGORIES +=		lang/go
 
 MODGO_BUILD_TARGET =	${MODGO_BUILD_CMD} ${ALL_TARGET}
-MODGO_FLAGS ?=		-x
+MODGO_FLAGS +=		-x
+
+.if empty(DEBUG)
+# by default omit symbol table, debug information and DWARF symbol table
+MODGO_LDFLAGS +=	-s -w
+.endif
 
 INSTALL_STRIP =
 .if ${MODGO_TYPE:L:Mbin}
@@ -58,15 +68,16 @@ MODGO_INSTALL_TARGET +=	${INSTALL_DATA_DIR} ${MODGO_PACKAGE_PATH} && \
 			find src pkg -type f -exec ${INSTALL_DATA} -p \
 				${MODGO_WORKSPACE}/{} \
 				${MODGO_PACKAGE_PATH}/{} \;
+
+# This is required to force rebuilding of go libraries upon changes in
+# toolchain.
+RUN_DEPENDS +=		${MODGO_RUN_DEPENDS}
 .endif
 
 MODGO_TEST_TARGET =	${MODGO_TEST_CMD} ${TEST_TARGET}
 
 .if empty(CONFIGURE_STYLE)
-.  if !target(post-patch)
-post-patch:
-	${MODGO_SETUP_WORKSPACE}
-.  endif
+MODGO_post-patch +=	${MODGO_SETUP_WORKSPACE}
 
 .  if !target(do-build)
 do-build:
